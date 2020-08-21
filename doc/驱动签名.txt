@@ -1,0 +1,5 @@
+makecert -r -n "CN=mirror" -sv "mirror.pvk" "mirror.cer"
+
+pvk2pfx -pvk "mirror.pvk" -spc "mirror.cer" -pfx "mirror.pfx"
+
+signtool sign /v /fd SHA256 /f "mirror.pfx" "mirror.sys"
